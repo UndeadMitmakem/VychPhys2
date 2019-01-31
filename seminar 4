@@ -1,0 +1,21 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import cauchy
+
+
+#x = np.random.uniform(-1, 1, size = 10000000)
+#y = np.random.uniform(-1, 1, size = 10000000)
+#
+#n = 10000000
+#z = 0
+#for i in range(n):
+#    if x[i]**2 + y[i]**2 <= 1:
+#        z += 1 
+
+rndm = np.random.RandomState(5)
+x = rndm.uniform(-1, 1, size = 10000)
+
+plt.hist(np.tan((x*np.pi)/2), range = [-20, 20], bins = 1000, density = True)
+
+x1 = np.linspace(-20, 20, 200)
+plt.plot(x1, (1/(np.pi*(x1**2 +1))) , color = 'red', lw = 3)
