@@ -17,9 +17,12 @@ eps = np.abs(interval[1] - interval[0])
 eig = np.linalg.eig(I)[0]
 plank = 1e-27
 m = 9e-28
-def E(k, a):
-    return ((k*plank/a)**2)/(2*m*eps**2)
-E_n = np.array([E(eig[i], a) for i in range(len(eig))])
+def E(k):
+    return ((k*plank)**2)/(2*m*eps**2)
+E_n = np.array([E(eig[i]) for i in range(len(eig))])
 plt.plot(interval, np.sort(E_n))
+plt.grid()
 plt.xscale('log')
 plt.yscale('log')
+plt.xlabel('E_n')
+plt.ylabel('iterations')
